@@ -15,6 +15,17 @@ This is frontend starter project for nodejs-aws mentoring program. It uses the f
 - [Prettier](https://prettier.io/) as a code formatting tool
 - [TypeScript](https://www.typescriptlang.org/) as a type checking tool
 
+## Links
+
+### Bucket
+
+https://my-shop-app-bucket.s3.eu-north-1.amazonaws.com/
+(403, no public access)
+
+### CloudFront
+
+https://d23m67lmckt3be.cloudfront.net/
+
 ## Available Scripts
 
 ### `start`
@@ -36,3 +47,17 @@ Runs tests in console, in browser or with coverage.
 ### `lint`, `prettier`
 
 Runs linting and formatting for all files in `src` folder.
+
+### `cf:deploy`
+
+Deploys application (`dist` folder).
+
+### `cf:build:deploy`
+
+Builds and deploys application.
+
+### `cf:invalidate`
+
+Creates new cloudfront cache invalidation:
+`cf:invalidate -- --distribution-id [DISTRIBUTION_ID]`
+[DISTRIBUTION_ID] is an output of `cf:deploy` command
