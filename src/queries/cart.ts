@@ -8,7 +8,7 @@ export function useCart() {
   return useQuery<CartItem[], AxiosError>("cart", async () => {
     const res = await axios.get<CartItem[]>(`${API_PATHS.cart}/profile/cart`, {
       headers: {
-        Authorization: `Basic ${localStorage.getItem("authorization_token")}`,
+        Authorization: `Bearer ${localStorage.getItem("authorization_token")}`,
       },
     });
     return res.data;
@@ -32,7 +32,7 @@ export function useUpsertCart() {
   return useMutation((values: CartItem) =>
     axios.put<CartItem[]>(`${API_PATHS.cart}/profile/cart`, values, {
       headers: {
-        Authorization: `Basic ${localStorage.getItem("authorization_token")}`,
+        Authorization: `Bearer ${localStorage.getItem("authorization_token")}`,
       },
     })
   );
